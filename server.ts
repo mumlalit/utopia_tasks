@@ -16,10 +16,11 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/myapp', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
 
 // Signup endpoint
 app.post('/signup', async (req: Request, res: Response) => {
